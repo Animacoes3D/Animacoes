@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logos - Laboratório Virtual</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+        color: white;
+        padding: 40px 20px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+        background: linear-gradient(45deg, #3498db, #2ecc71);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: #bdc3c7;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .logo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .logo-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .logo-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .logo-container {
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .logo-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        color: #3498db;
+      }
+
+      .logo-desc {
+        font-size: 0.95rem;
+        color: #ecf0f1;
+        line-height: 1.5;
+      }
+
+      /* Logo 1: Frasco Digital */
+      .logo-1 {
+        position: relative;
+        width: 140px;
+        height: 140px;
+      }
+
+      .flask {
+        position: absolute;
+        width: 60px;
+        height: 90px;
+        background: rgba(52, 152, 219, 0.8);
+        border-radius: 0 0 30px 30px;
+        bottom: 0;
+        left: 40px;
+        overflow: hidden;
+      }
+
+      .flask:before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #3498db;
+        border-bottom: none;
+        border-radius: 20px 20px 0 0;
+        top: -20px;
+        left: 17px;
+      }
+
+      .bubbles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .bubble {
+        position: absolute;
+        background: rgba(46, 204, 113, 0.7);
+        border-radius: 50%;
+        animation: float 3s infinite ease-in-out;
+      }
+
+      .bubble:nth-child(1) {
+        width: 8px;
+        height: 8px;
+        bottom: 20px;
+        left: 15px;
+        animation-delay: 0s;
+      }
+
+      .bubble:nth-child(2) {
+        width: 12px;
+        height: 12px;
+        bottom: 30px;
+        right: 10px;
+        animation-delay: 0.5s;
+      }
+
+      .bubble:nth-child(3) {
+        width: 6px;
+        height: 6px;
+        bottom: 50px;
+        left: 25px;
+        animation-delay: 1s;
+      }
+
+      .digital-grid {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px
+          ),
+          linear-gradient(0deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+        border-radius: 10px;
+        opacity: 0.5;
+      }
+
+      /* Logo 2: Átomo Conectado */
+      .logo-2 {
+        position: relative;
+        width: 140px;
+        height: 140px;
+      }
+
+      .atom {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 20px;
+        left: 20px;
+      }
+
+      .nucleus {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background: #e74c3c;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 15px #e74c3c;
+      }
+
+      .orbit {
+        position: absolute;
+        border: 2px solid #3498db;
+        border-radius: 50%;
+      }
+
+      .orbit-1 {
+        width: 80px;
+        height: 80px;
+        top: 10px;
+        left: 10px;
+      }
+
+      .orbit-2 {
+        width: 60px;
+        height: 60px;
+        top: 20px;
+        left: 20px;
+        transform: rotate(60deg);
+      }
+
+      .orbit-3 {
+        width: 70px;
+        height: 70px;
+        top: 15px;
+        left: 15px;
+        transform: rotate(120deg);
+      }
+
+      .electron {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #2ecc71;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #2ecc71;
+      }
+
+      .e1 {
+        top: 10px;
+        left: 50px;
+        animation: orbit1 4s linear infinite;
+      }
+      .e2 {
+        top: 70px;
+        left: 10px;
+        animation: orbit2 3s linear infinite;
+      }
+      .e3 {
+        top: 40px;
+        left: 75px;
+        animation: orbit3 5s linear infinite;
+      }
+
+      /* Logo 3: Molécula Digital */
+      .logo-3 {
+        position: relative;
+        width: 140px;
+        height: 140px;
+      }
+
+      .molecule {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        top: 10px;
+        left: 10px;
+      }
+
+      .central-atom {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: #9b59b6;
+        border-radius: 50%;
+        top: 45px;
+        left: 45px;
+        box-shadow: 0 0 15px #9b59b6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .bond {
+        position: absolute;
+        height: 3px;
+        background: #3498db;
+        transform-origin: 0 0;
+      }
+
+      .bond-1 {
+        width: 40px;
+        top: 60px;
+        left: 60px;
+        transform: rotate(0deg);
+      }
+
+      .bond-2 {
+        width: 40px;
+        top: 60px;
+        left: 60px;
+        transform: rotate(60deg);
+      }
+
+      .bond-3 {
+        width: 40px;
+        top: 60px;
+        left: 60px;
+        transform: rotate(120deg);
+      }
+
+      .terminal-atom {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #e67e22;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #e67e22;
+      }
+
+      .atom-1 {
+        top: 55px;
+        left: 95px;
+      }
+      .atom-2 {
+        top: 25px;
+        left: 80px;
+      }
+      .atom-3 {
+        top: 55px;
+        left: 25px;
+      }
+
+      .pixel {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #2ecc71;
+      }
+
+      /* Logo 4: VR com Elementos Químicos */
+      .logo-4 {
+        position: relative;
+        width: 140px;
+        height: 140px;
+      }
+
+      .vr-headset {
+        position: absolute;
+        width: 100px;
+        height: 70px;
+        border: 3px solid #3498db;
+        border-radius: 15px;
+        top: 35px;
+        left: 20px;
+      }
+
+      .vr-lens {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 2px solid #2ecc71;
+        border-radius: 50%;
+        top: 50px;
+      }
+
+      .lens-left {
+        left: 15px;
+      }
+
+      .lens-right {
+        right: 15px;
+      }
+
+      .chemical-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .element {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        animation: float 4s infinite ease-in-out;
+      }
+
+      .element-1 {
+        background: #e74c3c;
+        top: 10px;
+        left: 30px;
+        animation-delay: 0s;
+      }
+
+      .element-2 {
+        background: #f1c40f;
+        top: 20px;
+        right: 20px;
+        animation-delay: 1s;
+      }
+
+      .element-3 {
+        background: #2ecc71;
+        bottom: 30px;
+        left: 15px;
+        animation-delay: 2s;
+      }
+
+      /* Logo 5: Tubo de Ensaio com Dados */
+      .logo-5 {
+        position: relative;
+        width: 140px;
+        height: 140px;
+      }
+
+      .test-tube {
+        position: absolute;
+        width: 40px;
+        height: 80px;
+        background: rgba(52, 152, 219, 0.3);
+        border: 2px solid #3498db;
+        border-radius: 0 0 20px 20px;
+        bottom: 20px;
+        left: 50px;
+        overflow: hidden;
+      }
+
+      .test-tube:before {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border: 2px solid #3498db;
+        border-bottom: none;
+        border-radius: 15px 15px 0 0;
+        top: -15px;
+        left: 11px;
+      }
+
+      .data-stream {
+        position: absolute;
+        width: 60px;
+        height: 100px;
+        right: 10px;
+        top: 20px;
+      }
+
+      .data-line {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: #2ecc71;
+        left: 0;
+      }
+
+      .data-line:nth-child(1) {
+        top: 10px;
+        animation: dataFlow 3s infinite;
+      }
+      .data-line:nth-child(2) {
+        top: 30px;
+        animation: dataFlow 3s infinite 0.5s;
+      }
+      .data-line:nth-child(3) {
+        top: 50px;
+        animation: dataFlow 3s infinite 1s;
+      }
+      .data-line:nth-child(4) {
+        top: 70px;
+        animation: dataFlow 3s infinite 1.5s;
+      }
+
+      /* Logo 6: Conceito Híbrido */
+      .logo-6 {
+        position: relative;
+        width: 140px;
+        height: 140px;
+      }
+
+      .flask-hybrid {
+        position: absolute;
+        width: 70px;
+        height: 90px;
+        background: rgba(52, 152, 219, 0.2);
+        border: 2px solid #3498db;
+        border-radius: 0 0 35px 35px;
+        bottom: 25px;
+        left: 35px;
+      }
+
+      .flask-hybrid:before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #3498db;
+        border-bottom: none;
+        border-radius: 20px 20px 0 0;
+        top: -20px;
+        left: 23px;
+      }
+
+      .circuit-lines {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .circuit {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #2ecc71;
+        border-radius: 50%;
+      }
+
+      .circuit:nth-child(1) {
+        top: 20px;
+        left: 20px;
+      }
+      .circuit:nth-child(2) {
+        top: 20px;
+        right: 20px;
+      }
+      .circuit:nth-child(3) {
+        bottom: 40px;
+        left: 30px;
+      }
+      .circuit:nth-child(4) {
+        bottom: 20px;
+        right: 30px;
+      }
+
+      .circuit-line {
+        position: absolute;
+        height: 2px;
+        background: #2ecc71;
+      }
+
+      .line-1 {
+        width: 40px;
+        top: 22px;
+        left: 26px;
+        transform: rotate(0deg);
+      }
+      .line-2 {
+        width: 50px;
+        top: 60px;
+        left: 20px;
+        transform: rotate(90deg);
+      }
+      .line-3 {
+        width: 30px;
+        bottom: 40px;
+        left: 36px;
+        transform: rotate(0deg);
+      }
+
+      /* Animações */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes orbit1 {
+        0% {
+          transform: rotate(0deg) translateX(40px) rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg) translateX(40px) rotate(-360deg);
+        }
+      }
+
+      @keyframes orbit2 {
+        0% {
+          transform: rotate(60deg) translateX(30px) rotate(-60deg);
+        }
+        100% {
+          transform: rotate(420deg) translateX(30px) rotate(-420deg);
+        }
+      }
+
+      @keyframes orbit3 {
+        0% {
+          transform: rotate(120deg) translateX(35px) rotate(-120deg);
+        }
+        100% {
+          transform: rotate(480deg) translateX(35px) rotate(-480deg);
+        }
+      }
+
+      @keyframes dataFlow {
+        0% {
+          transform: translateX(-60px);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(60px);
+          opacity: 0;
+        }
+      }
+
+      .color-palette {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .color-swatch {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .color-name {
+        font-size: 0.8rem;
+        margin-top: 5px;
+        text-align: center;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        padding: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #bdc3c7;
+      }
+
+      @media (max-width: 768px) {
+        .logo-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Conceitos de Logo - Laboratório Virtual</h1>
+        <p class="subtitle">
+          Ideias visuais que combinam elementos de laboratório químico com
+          conceitos digitais e tecnologia
+        </p>
+      </header>
+
+      <div class="logo-grid">
+        <!-- Logo 1 -->
+        <div class="logo-card">
+          <div class="logo-container">
+            <div class="logo-1">
+              <div class="digital-grid"></div>
+              <div class="flask">
+                <div class="bubbles">
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="logo-title">Frasco Digital</h3>
+          <p class="logo-desc">
+            Combina o frasco de laboratório tradicional com elementos digitais
+            como grid e partículas em movimento.
+          </p>
+          <div class="color-palette">
+            <div>
+              <div class="color-swatch" style="background: #3498db"></div>
+              <div class="color-name">Azul</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #2ecc71"></div>
+              <div class="color-name">Verde</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #ffffff"></div>
+              <div class="color-name">Branco</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo 2 -->
+        <div class="logo-card">
+          <div class="logo-container">
+            <div class="logo-2">
+              <div class="atom">
+                <div class="orbit orbit-1"></div>
+                <div class="orbit orbit-2"></div>
+                <div class="orbit orbit-3"></div>
+                <div class="nucleus"></div>
+                <div class="electron e1"></div>
+                <div class="electron e2"></div>
+                <div class="electron e3"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="logo-title">Átomo Conectado</h3>
+          <p class="logo-desc">
+            Representa um átomo com órbitas e elétrons, simbolizando a conexão
+            entre a química e o mundo digital.
+          </p>
+          <div class="color-palette">
+            <div>
+              <div class="color-swatch" style="background: #3498db"></div>
+              <div class="color-name">Azul</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #e74c3c"></div>
+              <div class="color-name">Vermelho</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #2ecc71"></div>
+              <div class="color-name">Verde</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo 3 -->
+        <div class="logo-card">
+          <div class="logo-container">
+            <div class="logo-3">
+              <div class="molecule">
+                <div class="central-atom">O</div>
+                <div class="bond bond-1"></div>
+                <div class="bond bond-2"></div>
+                <div class="bond bond-3"></div>
+                <div class="terminal-atom atom-1"></div>
+                <div class="terminal-atom atom-2"></div>
+                <div class="terminal-atom atom-3"></div>
+                <div class="pixel" style="top: 30px; left: 50px"></div>
+                <div class="pixel" style="top: 70px; left: 30px"></div>
+                <div class="pixel" style="top: 80px; left: 70px"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="logo-title">Molécula Digital</h3>
+          <p class="logo-desc">
+            Uma molécula estilizada com elementos pixelados, representando a
+            interseção entre química e tecnologia.
+          </p>
+          <div class="color-palette">
+            <div>
+              <div class="color-swatch" style="background: #9b59b6"></div>
+              <div class="color-name">Roxo</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #3498db"></div>
+              <div class="color-name">Azul</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #e67e22"></div>
+              <div class="color-name">Laranja</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo 4 -->
+        <div class="logo-card">
+          <div class="logo-container">
+            <div class="logo-4">
+              <div class="vr-headset">
+                <div class="vr-lens lens-left"></div>
+                <div class="vr-lens lens-right"></div>
+              </div>
+              <div class="chemical-elements">
+                <div class="element element-1"></div>
+                <div class="element element-2"></div>
+                <div class="element element-3"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="logo-title">Realidade Virtual Química</h3>
+          <p class="logo-desc">
+            Um headset de VR com elementos químicos flutuando, simbolizando a
+            imersão no mundo da química.
+          </p>
+          <div class="color-palette">
+            <div>
+              <div class="color-swatch" style="background: #3498db"></div>
+              <div class="color-name">Azul</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #2ecc71"></div>
+              <div class="color-name">Verde</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #e74c3c"></div>
+              <div class="color-name">Vermelho</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo 5 -->
+        <div class="logo-card">
+          <div class="logo-container">
+            <div class="logo-5">
+              <div class="test-tube"></div>
+              <div class="data-stream">
+                <div class="data-line"></div>
+                <div class="data-line"></div>
+                <div class="data-line"></div>
+                <div class="data-line"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="logo-title">Tubo de Ensaio com Dados</h3>
+          <p class="logo-desc">
+            Um tubo de ensaio clássico acompanhado de um fluxo de dados,
+            representando a análise científica digital.
+          </p>
+          <div class="color-palette">
+            <div>
+              <div class="color-swatch" style="background: #3498db"></div>
+              <div class="color-name">Azul</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #2ecc71"></div>
+              <div class="color-name">Verde</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #ffffff"></div>
+              <div class="color-name">Branco</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo 6 -->
+        <div class="logo-card">
+          <div class="logo-container">
+            <div class="logo-6">
+              <div class="flask-hybrid"></div>
+              <div class="circuit-lines">
+                <div class="circuit"></div>
+                <div class="circuit"></div>
+                <div class="circuit"></div>
+                <div class="circuit"></div>
+                <div class="circuit-line line-1"></div>
+                <div class="circuit-line line-2"></div>
+                <div class="circuit-line line-3"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="logo-title">Conceito Híbrido</h3>
+          <p class="logo-desc">
+            Combina um frasco de laboratório com elementos de circuito,
+            simbolizando a fusão entre química e tecnologia.
+          </p>
+          <div class="color-palette">
+            <div>
+              <div class="color-swatch" style="background: #3498db"></div>
+              <div class="color-name">Azul</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #2ecc71"></div>
+              <div class="color-name">Verde</div>
+            </div>
+            <div>
+              <div class="color-swatch" style="background: #ffffff"></div>
+              <div class="color-name">Branco</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          Conceitos de logo para o canal "Laboratório Virtual" - Projeto PIBIC
+        </p>
+        <p>
+          Estes são protótipos visuais que podem ser refinados por um designer
+          gráfico
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
